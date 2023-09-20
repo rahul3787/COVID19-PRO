@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
@@ -13,14 +13,18 @@ const Display = () => {
   const [display, setDisplay] = useState({
     allData: [],
   });
-
+const firstRender =useRef(true)
   useEffect(() => {
-    getData();
+    if(firstRender.current) {
+      getData();
+      firstRender.current= false
+    }
+ 
   }, []);
 
   let getData = () => {
     axios
-      .get("https://api.covid19india.org/data.json")
+      .get("https://data.covid19india.org/data.json")
       .then((response) => {
         const data = response.data;
 

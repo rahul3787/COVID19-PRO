@@ -22,18 +22,25 @@ const useStyles = makeStyles((theme) => ({
   box: {
     
     [theme.breakpoints.up("md")]: {
-      marginTop: "-160px",
-      marginLeft: "-20px",
+      marginTop: "-196px",
+      marginLeft: "-10px",
     },
     [theme.breakpoints.down("md")]: {
-      marginTop: "-100px",
+      height:"50px",
+      width:"50px",
+      fontSize: "22px",
+      display:"none",
+   
     },
   },
   map: {
    
     [theme.breakpoints.up("md")]: {
       marginLeft: "150px",
-      marginTop: "15px",
+      marginTop: "60px",
+    },
+    [theme.breakpoints.down("md")]: {
+      marginTop: "200px",
     },
   },
   text: {
@@ -43,9 +50,10 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: "-300px",
     },
     [theme.breakpoints.down("md")]: {
-      fontSize: "11px",
-      marginTop: "-290px",
-      marginLeft: "100px",
+      fontSize: "18px",
+     
+      marginTop: "-391px",
+      marginLeft: "10px",
     },
   },
 }));
@@ -62,7 +70,7 @@ const Donut = () => {
 
   let getData = () => {
     axios
-      .get("https://api.covid19india.org/data.json")
+      .get("https://data.covid19india.org/data.json")
       .then((response) => {
         const data = response.data;
 
@@ -88,10 +96,10 @@ const Donut = () => {
 const mapData =()=>{
   return(
      <div>
-    <p style={{ color: "orange" }}>confirmed : {confirmed.slice(-1)}</p>
-    <p style={{ color: "#42A5F5" }}>active : {active.slice(-1)}</p>
-    <p style={{ color: " rgb(255,112,67)" }}>deaths : {deaths.slice(-1)}</p>
-    <p style={{ color: "green" }}>recovered : {recovered.slice(-1)}</p>
+    <p style={{ color: "orange" }}>Confirmed : {confirmed.slice(-1)}</p>
+    <p style={{ color: "#42A5F5" }}>Active : {active.slice(-1)}</p>
+    <p style={{ color: " rgb(255,112,67)" }}>Deaths : {deaths.slice(-1)}</p>
+    <p style={{ color: "green" }}>Decovered : {recovered.slice(-1)}</p>
     </div>
   )
 }
@@ -100,6 +108,7 @@ const mapData =()=>{
   return (
     <div className="App">
       <Paper>
+      <center><h1 >Covid-19 Tracker</h1></center>
         <Grid container justify="center">
           <Grid item xs={8} md={3} className={classes.box}>
             
@@ -116,6 +125,7 @@ const mapData =()=>{
             </Chart>
           </Grid>
           <Grid item xs={12} md={6} className={classes.map}>
+            
             <Line
               data={{
                

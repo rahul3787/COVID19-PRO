@@ -85,7 +85,7 @@ function TestMap() {
 
   let getData = () => {
     axios
-      .get("https://api.covid19india.org/data.json")
+      .get("https://data.covid19india.org/data.json")
       .then((response) => {
         const data = response.data;
 
