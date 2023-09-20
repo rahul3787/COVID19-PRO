@@ -9,7 +9,6 @@ import Grid from '@material-ui/core/Grid';
 function App() {
   return (
     <div className="App">
-     
       <Grid container spacing={3}>
       <Grid item xs={12} sm={6} style={{height:"400px"}}>
              <Donut  />
